@@ -61,7 +61,7 @@ let map = L.map('mapid').setView([40.7, -94.5], 4);
     7) To change your map style, click on the Static Tiles API documentation link on the Static Tiles API page.
     8)  On the left sidebar, click on the Styles link
     9) Below the Styles subheading, find a list of different Mapbox styles
-    10) To change the map style, use the style given in the URLs (e.g., "streets-v11," "dark-v10," etc.).
+    10) Change the map style, use styles given in the URLs (e.g. "streets-v11" "dark-v10" "satellite-streets-v11", etc.).
         mapbox://styles/mapbox/dark-v10 */
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -160,7 +160,7 @@ cityData.forEach((citiesObj) => {
     L.circleMarker(citiesObj.location, {
         // Add radii by using population & decrease each city's radius so the circle markers fit on the map
         radius: citiesObj.population/200000,
-        color: '#ffa500', // line color
+        color: 'orange', // line color
         weight: 4, // lineweight
         fillColor: '#ffa500', // filled circle color
         fillOpacity: 0.25,
@@ -172,6 +172,35 @@ cityData.forEach((citiesObj) => {
     // Add addTo(map) on L.Marker() to add the graymap object tile layer to our let map
         .addTo(map); 
 }); 
+
+// MAP MULTIPLE LINES
+    // When creating line in Leaflet, starting & ending points & all coordinates along the route need to be in an array.
+// Coordinates for each point to be used in the line.
+let line = [
+    [33.9416, -118.4085], // In Order 1st - LAX
+    [37.6213, -122.3790], // In Order 2nd - SFO
+    [40.7899, -111.9791], // In Order 3rd - SLC
+    [47.4502, -122.3088] // In Order 4th - SEA
+  ];
+
+  let skillDrillLine = [
+    [37.6213, -122.3790], // SFO
+    [30.1975, -97.6664], // AUS
+    [43.6777, -79.6248], // YYZ
+    [40.6413, -73.7781], // JFK
+  ];
+
+ // Create a polyline using the line coordinates and make the line red.
+ L.polyline(line, {
+    color: "Yellow"
+ }).addTo(map); 
+
+L.polyline(skillDrillLine, {
+    color: "blue",
+    dashArray: "7",
+    weight: 5,
+    opacity: .5,
+}).addTo(map);
 
   /* */
   /* 1)
