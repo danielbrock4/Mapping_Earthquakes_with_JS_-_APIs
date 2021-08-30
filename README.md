@@ -1,2 +1,2 @@
-# Mapping_Earthquakes_with_JS_-_APIs
+# Module 13: Mapping Earthquakes Using JS's Leaflet & D3 with APIs 
 Using Javascript's Leaflet.js and D3 libraries along with Mapbox's API, I populated a geographical map with GeoJSON earthquake data from the U.S. Geological Survey URL.  Each earthquake is visually represented by color &amp; a circle, where a higher magnitude has a larger diameter and is darker in color. By utilizing Leaflet control plugins to add user interface controls, each earthquake has a popup marker that, when clicked, shows the magnitude of the earthquake and the location of the earthquake. 
