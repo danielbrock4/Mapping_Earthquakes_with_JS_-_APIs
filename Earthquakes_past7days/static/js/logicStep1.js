@@ -1,8 +1,4 @@
-// Map GeoJSON Polygons
-/* In the JSON data, we can see that the geometry type is "Polygon." To form a polygon, 
-the coordinates have to be an array of linear ring (LinearRing) coordinate arrays. 
-A LinearRing is a LineString with at least four or more sets of coordinates, where the starting and 
-end points have the same coordinates.*/
+// Add Earthquake Data to a Map
 //------------------------------------------------------------------------------------------------------------------
 
 // First, Add the multiple tile layers that will be the background of our map and assign them variables.
