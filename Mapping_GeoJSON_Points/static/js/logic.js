@@ -138,7 +138,7 @@ let baseMaps ={
 let map = L.map('mapid', {
     center: [30, 30],
     zoom: 4,
-    layer: [streets] // base layer code
+    layers: [streets] // base layer code
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
