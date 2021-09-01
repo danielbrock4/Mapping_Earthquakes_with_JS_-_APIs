@@ -59,6 +59,7 @@ d3.json(torontoHoods).then((data) => {
         oneEachFeature: ((feature, layer) => {
             console.log(layer);
             layer.bindPopup(`<h4>Neighborhood: ${feature.properties.AREA_NAME}</h4>`)
+            
         })
     }).addTo(map);
 });
