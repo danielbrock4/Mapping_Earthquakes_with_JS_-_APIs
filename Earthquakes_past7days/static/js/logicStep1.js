@@ -1,8 +1,4 @@
-// Map GeoJSON Polygons
-/* In the JSON data, we can see that the geometry type is "Polygon." To form a polygon, 
-the coordinates have to be an array of linear ring (LinearRing) coordinate arrays. 
-A LinearRing is a LineString with at least four or more sets of coordinates, where the starting and 
-end points have the same coordinates.*/
+// Add Earthquake Data to a Map
 //------------------------------------------------------------------------------------------------------------------
 
 // First, Add the multiple tile layers that will be the background of our map and assign them variables.
@@ -34,34 +30,29 @@ let baseMaps = {
     // An alternative to using the setView()method is to modify each attribute in the 
     // map object using the curly braces notation as follows
 let map = L.map("mapid", {
-    center: [43.7, -79.3],
-    zoom: 11,
-    layers: [satelliteStreets] // base layer code
+    center: [39.5, -98.5],
+    zoom: 3,
+    layers: [streets] // base layer code
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
     // use the Leaflet control.layers, which will control the layers we'll see on the map
 L.control.layers(baseMaps).addTo(map);
 
-// Accessing the airport GeoJSON URL
-    // access the majorAirports.json file on GitHub with the following airportData variable
-    // Within GitHub find majorAirports.json file and click raw to view JSON data
-let torontoData = "https://raw.githubusercontent.com/danielbrock4/Mapping_Earthquakes_with_JS_-_APIs/Mapping_GeoJSON_Linestrings/Mapping_GeoJSON_Linestrings/static/js/torontoRoutes.json";
-let torontoHoods = "https://raw.githubusercontent.com/danielbrock4/Mapping_Earthquakes_with_JS_-_APIs/Mapping_GeoJSON_Polygons/Mapping_GeoJSON_Polygons/static/js/torontoNeighborhoods.json"
+// Add the USGS URL for earthquake data by following these steps:
+    // 1) From the USGS home page (https://earthquake.usgs.gov/) click the Earthquakes link:
+    // 2) Next, click the Real-time Notifications, Feeds, and Web Services (Links to an external site.) link:
+    // 3) Scroll down until you see "GeoJSON Summary Feed".
+    // 4) Click the GeoJSON Summary Feed (Links to an external site.) link:
+    // 5) On the right-hand side, click the All Earthquakes link under the "Past 7 Days" heading:
+let earthquakeData = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Grabbing our GeoJSON data from URL.
-d3.json(torontoHoods).then((data) => { 
+d3.json(earthquakeData).then((data) => { 
     console.log(data);
     // Creating a GeoJSON layer with the retrieved data.
-    L.geoJson(data, {
-        color: "blue",
-        weight: 1,
-        oneEachFeature: ((feature, layer) => {
-            console.log(layer);
-            layer.bindPopup(`<h4>Neighborhood: ${feature.properties.AREA_NAME}</h4>`)
-            
-        })
-    }).addTo(map);
+    L.geoJson(data).addTo(map);
 });
+
 
 /* */
