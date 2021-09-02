@@ -56,10 +56,9 @@ d3.json(torontoHoods).then((data) => {
     L.geoJson(data, {
         color: "blue",
         weight: 1,
-        oneEachFeature: ((feature, layer) => {
+        onEachFeature: ((feature, layer) => {
             console.log(layer);
             layer.bindPopup(`<h4>Neighborhood: ${feature.properties.AREA_NAME}</h4>`)
-            
         })
     }).addTo(map);
 });
