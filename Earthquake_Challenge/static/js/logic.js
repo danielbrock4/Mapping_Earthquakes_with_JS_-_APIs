@@ -1,4 +1,4 @@
-// Add a Legend to the Map
+// Challenge
 //------------------------------------------------------------------------------------------------------------------
 
 // First, Add the multiple tile layers that will be the background of our map and assign them variables.
