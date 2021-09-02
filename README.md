@@ -4,7 +4,7 @@
 
 **Software:** Javascipt, CSS, HTML, D3, Mapbox API, Leaflet
 
-**Data Source GeoJSON Files:** 
+**Data Sources GeoJSON Files:** 
   - Github: 
     - https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json
   - US Geological Survey: 
