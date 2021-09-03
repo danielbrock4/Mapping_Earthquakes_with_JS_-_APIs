@@ -165,7 +165,7 @@ d3.json(earthquakeDataURL).then(function(data) {
       if (magnitude === 0) {
         return 1;
       }
-      return magnitude * 2.5;
+      return magnitude * 3;
     };
   
     // 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map 
