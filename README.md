@@ -1,4 +1,4 @@
-# Module 13: Mapping Earthquakes Using JS's Leaflet & D3 with APIs 
+# Mapping Earthquakes Using JS's Leaflet & D3 with APIs 
 
 ## Resourses:
 
